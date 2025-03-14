@@ -10,4 +10,7 @@ for i in range(N):
 for n in range(N):
     for m in range(M):
         sum_arr[n][m] = A[n][m] + B[n][m]
-    print(*sum_arr[n])
+        sys.stdout.write(str(sum_arr[n][m]) + ' ')
+    sys.stdout.write('\n')
+
+
