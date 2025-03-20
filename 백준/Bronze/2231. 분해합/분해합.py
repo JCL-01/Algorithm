@@ -1,6 +1,6 @@
 import sys
 N = int(sys.stdin.readline())
-for i in range(1, N+1):
+for i in range(max(1, N - 54), N + 1):
     if i == N:
         sys.stdout.write('0')
         break
