@@ -4,8 +4,6 @@ while True:
     N = sys.stdin.readline().rstrip()
     if N == '0':
         break
-    if i != 0:
-        sys.stdout.write('\n')
     ascending = ''
     for i in range(int(len(N) / 2) + 1):
         ascending += N[i]
@@ -13,7 +11,6 @@ while True:
     for j in range(-1, -(int(len(N) / 2) + 1) -1, -1):
         descending += N[j]
     if ascending == descending:
-        sys.stdout.write('yes')
+        sys.stdout.write('yes\n')
     else:
-        sys.stdout.write('no')
-    i += 1
+        sys.stdout.write('no\n')
