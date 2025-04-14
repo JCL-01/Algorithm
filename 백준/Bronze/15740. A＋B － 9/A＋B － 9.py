@@ -1,3 +1,2 @@
 import sys
-A, B = map(int, sys.stdin.readline().split())
-sys.stdout.write(str(A + B))
+sys.stdout.write(str(sum(map(int, sys.stdin.readline().split()))))
