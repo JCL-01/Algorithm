@@ -1,3 +1,2 @@
 import sys
-A, B = map(int, sys.stdin.readline().split())
-sys.stdout.write(str(min(A, B)))
+sys.stdout.write(str(min(map(int, sys.stdin.readline().split()))))
