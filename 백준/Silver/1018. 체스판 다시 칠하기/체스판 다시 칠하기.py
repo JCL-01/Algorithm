@@ -1,21 +1,27 @@
-import sys
-N, M, *lines = sys.stdin.read().split()
-repaint_num_list = []
-for start_row in range(int(N) - 7):
-    for start_column in range(int(M) - 7):
-        W_repaint_num = 0
-        B_repaint_num = 0
-        for row in range(start_row, start_row + 8):
-            for column in range(start_column, start_column + 8):
-                if (row + column) % 2 == 0:
-                    if lines[row][column] != 'W':
-                        W_repaint_num += 1
+n,m=map(int,input().split())
+
+mtr=[]
+cnt=[]
+for i in range(n):
+    mtr.append(input())
+    
+for a in range(n-7):
+    for b in range(m-7):#8*8로 자르기 위해, -7해준다
+        w_index=0 #흰색으로 시작
+        b_index=0 #검은색으로 시작
+        for i in range(a,a+8):#시작지점
+            for j in range(b,b+8):#시작지점
+                if (i+j)%2==0:#짝수인 경우
+                    if mtr[i][j]!='W':#W가 아니면, 즉 B이면
+                        w_index+=1#W로 칠하는 갯수
+                    else:#W일 때
+                        b_index+=1#B로 칠하는 갯수
+                else:#홀수인 경우
+                    if mtr[i][j]!='W':#W가 아니면, 즉 B이면
+                        b_index+=1#B로 칠하는 갯수
                     else:
-                        B_repaint_num += 1
-                else:
-                    if lines[row][column] == 'W':
-                        W_repaint_num += 1
-                    else:
-                        B_repaint_num += 1
-        repaint_num_list.extend([W_repaint_num, B_repaint_num])
-sys.stdout.write(f'{min(repaint_num_list)}')
+                        w_index+=1#W로 칠하는 갯수
+                        
+        cnt.append(w_index) #W로 시작할 때 경우의 수
+        cnt.append(b_index) #B로 시작할 때 경우의 수
+print(min(cnt))
